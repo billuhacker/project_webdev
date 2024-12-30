@@ -19,15 +19,38 @@ function BookingPage() {
   };
 
   return (
-    <div>
-      <h1>Booking Page</h1>
-      <p>Property ID: {id}</p>
-      <label>Check-In Date: <input type="date" value={checkIn} onChange={(e) => setCheckIn(e.target.value)} /></label>
-      <br />
-      <label>Check-Out Date: <input type="date" value={checkOut} onChange={(e) => setCheckOut(e.target.value)} /></label>
-      <br />
-      <button onClick={handleBooking}>Confirm Booking</button>
-      {message && <p>{message}</p>}
+    <div className="max-w-lg mx-auto my-10 p-6 bg-white shadow-lg rounded-lg">
+      <h1 className="text-2xl font-bold mb-4">Booking Page</h1>
+      <p className="mb-4"><span className="font-semibold">Property ID:</span> {id}</p>
+      <div className="space-y-4">
+        <div>
+          <label className="block font-semibold">Check-In Date:</label>
+          <input
+            type="date"
+            value={checkIn}
+            onChange={(e) => setCheckIn(e.target.value)}
+            className="w-full border px-3 py-2 rounded"
+          />
+        </div>
+        <div>
+          <label className="block font-semibold">Check-Out Date:</label>
+          <input
+            type="date"
+            value={checkOut}
+            onChange={(e) => setCheckOut(e.target.value)}
+            className="w-full border px-3 py-2 rounded"
+          />
+        </div>
+        <button
+          onClick={handleBooking}
+          className="w-full mt-4 px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"
+        >
+          Confirm Booking
+        </button>
+        {message && (
+          <p className="text-green-600 mt-4">{message}</p>
+        )}
+      </div>
     </div>
   );
 }
